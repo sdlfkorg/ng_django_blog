@@ -9,7 +9,7 @@
     <title>Try Angular and Django</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'lib/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,15 +18,32 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="demoapp">
-    <h1>Angular and Django Integration</h1>
-    <div ng-controller="DemoCtrl">
-    	<div class="data">
-	
-    	</div>
-    	<button ng-click="save()">Click</button>
-    	
+  <body ng-app="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h1>Angular and Django Integration</h1>
+                <div ng-controller="DemoCtrl as demoCtrl">
+                    <!-- <div class="data">
+                    </div>
+                    <button class="btn btn-primary" ng-click="save()">Click</button> -->
+                    {% verbatim %}
+                    <div class="panel" ng-repeat="post in posts">
+                        <div class='panel-heading clearfix'>
+                            <h3>{{post.title}}</h3>
+                            <author class='pull-right'>{{post.user_name}}</author>
+                        </div>
+                        <p class='well'>{{post.content}}</p>
+                        
+                    </div>
+    
+                    {% endverbatim %}
+                    
 
+                </div>
+                
+            </div>
+        </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -34,8 +51,9 @@
     <!--  -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/app.config.js' %}"></script> -->
     <!--  -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'lib/js/bootstrap.min.js' %}"></script>
   </body>
 </html>
