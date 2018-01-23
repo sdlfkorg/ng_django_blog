@@ -1,4 +1,32 @@
-app = angular.module('app', [])
+app = angular.module('app', [
+    'ngResource',
+    'ngRoute',])
+
+// app.config(function($locationProvider) {
+//     $locationProvider.html5Mode(true);
+// });
+
+app.config(function($routeProvider, $locationProvider) {
+        // $locationProvider.html5Mode({
+        //   enabled: true,
+        //   $locationProvider.hashPrefix('!');
+        // });
+
+        $routeProvider.when(
+            '/',
+            {
+                templateUrl : '/static/js/templates/index.html',
+                controller  : 'DemoCtrl'
+            }
+        ).when(
+            '/about', 
+            {
+                templateUrl : '/static/js/templates/about.html',
+                controller  : 'DemoCtrl'
+            }
+        )
+});
+
 
 app.controller('DemoCtrl', ['$scope', '$http', function($scope, $http){
     //  $scope.num = 0;

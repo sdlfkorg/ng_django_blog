@@ -11,6 +11,7 @@
     <!-- Bootstrap -->
     <link href="{% static 'lib/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <base href='/'></base>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,24 +24,24 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <h1>Angular and Django Integration</h1>
-                <div ng-controller="DemoCtrl as demoCtrl">
-                    <!-- <div class="data">
-                    </div>
-                    <button class="btn btn-primary" ng-click="save()">Click</button> -->
+                
                     {% verbatim %}
-                    <div class="panel" ng-repeat="post in posts">
-                        <div class='panel-heading clearfix'>
-                            <h3>{{post.title}}</h3>
-                            <author class='pull-right'>{{post.user_name}}</author>
+                        <div ng-view></div>
+                        <!-- <div ng-controller="DemoCtrl as demoCtrl"> -->
+                        <!-- <div class="data">
                         </div>
-                        <p class='well'>{{post.content}}</p>
-                        
-                    </div>
-    
-                    {% endverbatim %}
+                        <button class="btn btn-primary" ng-click="save()">Click</button> -->
+                        <!-- <div class="panel" ng-repeat="post in posts">
+                            <div class='panel-heading clearfix'>
+                                <h3>{{post.title}}</h3>
+                                <author class='pull-right'>{{post.user_name}}</author>
+                            </div>
+                            <p class='well'>{{post.content}}</p>
+                            
+                        </div> -->
                     
+                    {% endverbatim %}
 
-                </div>
                 
             </div>
         </div>
@@ -50,7 +51,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!--  -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- for ng-route and ng-resource -->
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
+    <!--  -->
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
     <!-- <script type="text/javascript" src="{% static 'js/app.config.js' %}"></script> -->
     <!--  -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
