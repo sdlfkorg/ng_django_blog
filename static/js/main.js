@@ -1,18 +1,18 @@
-app = angular.module('app', [
-    'ngResource',
-    'ngRoute',])
+(function() {
+  
+  'use strict';
+  
+  angular
+    .module('app', ['ngResource', 'ngRoute'])
+    .config(RouterConfig)
+    .controller('DemoCtrl', DemoCtrl);
 
-// app.config(function($locationProvider) {
-//     $locationProvider.html5Mode(true);
-// });
 
-app.config(function($routeProvider, $locationProvider) {
-        // $locationProvider.html5Mode({
-        //   enabled: true,
-        //   $locationProvider.hashPrefix('!');
-        // });
-
-        $routeProvider.when(
+  RouterConfig.$inject = ['$routeProvider', '$locationProvider'];
+  
+  function RouterConfig($routeProvider, $locationProvider) {
+    //to allow vskyconsole protocol
+    $routeProvider.when(
             '/',
             {
                 templateUrl : '/static/js/templates/index.html',
@@ -22,42 +22,26 @@ app.config(function($routeProvider, $locationProvider) {
             '/about', 
             {
                 templateUrl : '/static/js/templates/about.html',
-                controller  : 'DemoCtrl'
             }
         )
-});
+    
+  }
 
+  DemoCtrl.$inject = ['$scope', '$http'];
 
-app.controller('DemoCtrl', ['$scope', '$http', function($scope, $http){
-    //  $scope.num = 0;
-    //  $scope.save = function(){
-    //      $(".data").html("Click: " + $scope.num);
-    //      $scope.num += 1;
-    //  };
+  function DemoCtrl($scope, $http){
 
-    // $scope.posts = [{
-    //     user_name: 'Joe',
-    //     title: 'Sample Post #1',
-    //     content: 'This is the first sample post'
-    //     }
-    // 	,{
-    //     user_name: 'Karen',
-    //     title: 'Sample Post #2',
-    //     content: 'This is another sample post'
-	   //  }
-    // ];
-    // console.log($scope.posts);
     var data = $http.get('/api/post').then(
-    	function(response){
-    		console.log('response');
-    		console.log(response);
-    		$scope.posts = response.data;
-    	},
-    	function(errorResponse){
-    		console.log(errorResponse);
-    	}
+        function(response){
+            console.log('response');
+            console.log(response);
+            $scope.posts = response.data;
+        },
+        function(errorResponse){
+            console.log(errorResponse);
+        }
     );
-    // console.log($scope.data);
 
-
-}]);
+  }
+  
+})();
