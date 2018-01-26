@@ -5,7 +5,8 @@
   angular
     .module('app.post.controller', [])
     .controller('PostCtrl', PostCtrl)
-    .controller('PostDetailCtrl', PostDetailCtrl);
+    .controller('PostDetailCtrl', PostDetailCtrl)
+    .controller('PostEditCtrl', PostEditCtrl);
     
   PostCtrl.$inject = ['$scope', '$http', 'PostService'];
 
@@ -37,6 +38,22 @@
     );
     
   }
+
+
+  PostEditCtrl.$inject = ['$scope', '$http', '$routeParams', 'PostService'];
+
+  function PostEditCtrl($scope, $http, $routeParams, Post) {
+    var vm = this;
+    
+    
+    
+  }
+
+
+
+
+
+
 
 })();
 

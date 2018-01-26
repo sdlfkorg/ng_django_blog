@@ -1,0 +1,53 @@
+<form class="form-horizontal" name="postEditCtrl.postForm" ng-model-options="{allowInvalid: true}" role="form" novalidate>
+
+    <!-- name -->
+    <div class="form-group">
+        <label for="name" class="col-sm-4 control-label required" translate>title</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="title" name="title"
+            ng-model="postEditCtrl.name" required>
+          <!-- <div class="error-container" role="alert"
+            ng-messages="lbaasSr1ListenerCtrl.listenerForm.name.$error">
+            <p ng-message="required">{{'validation.required' | translate}}</p>
+            <p ng-message="maxlength"><span translate="validation.maxlength" translate-values="{length: lbaasSr1ListenerCtrl.Const.size.string}"></span></p>
+          </div> -->
+        </div>
+    </div>
+    <!-- name -->
+
+    <!-- description -->
+    <div class="form-group">
+        <label for="description" class="col-sm-4 control-label" translate>content</label>
+        <div class="col-sm-8">
+          <textarea type="text" class="form-control" id="content" name="content"
+            ng-model="postEditCtrl.description">
+              
+          </textarea>
+          <!-- <div class="error-container" role="alert"
+            ng-messages="lbaasSr1ListenerCtrl.listenerForm.description.$error">
+            <p ng-message="maxlength"><span translate="validation.maxlength" translate-values="{length: lbaasSr1ListenerCtrl.Const.size.string}"></span></p>
+          </div> -->
+        </div>
+    </div>
+    <!-- description -->
+
+    <div class="modal-footer">
+    <div ng-hide="hideBtns || showSpinner">
+      <!-- <button type="button" class="btn btn-default" data-dismiss="modal" ng-mousedown="cancelFn()" ng-keydown="cancelFn()">{{cancelTxt || 'Cancel'}}</button> -->
+      <!-- <button type="button" class="btn btn-primary" id="{{okId}}" data-dismiss="{{dataDismiss}}"
+        ng-click="okFn()" ng-hide="hideOkBtn" ng-disabled="disableOkBtn">
+        {{okTxt || 'Submit'}}
+      </button> -->
+      <button type="button" class="btn btn-primary" 
+        ng-click="okFn()" ng-disabled="disableOkBtn">
+        {{okTxt || 'Submit'}}
+      </button>
+    </div>
+  </div>
+
+    
+
+
+
+
+</form>

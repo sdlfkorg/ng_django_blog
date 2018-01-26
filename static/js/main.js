@@ -16,7 +16,13 @@
             templateUrl : '/static/js/templates/index.html',
             controller  : 'PostCtrl'
         }
-      ).when(
+      )
+      .when(
+      '/posts/create', {
+          templateUrl: '/static/js/templates/post-edit.html',
+          controller: 'PostEditCtrl as postEditCtrl'
+      })
+      .when(
       '/posts/:id', {
           templateUrl: '/static/js/templates/post-detail.html',
           controller: 'PostDetailCtrl'
